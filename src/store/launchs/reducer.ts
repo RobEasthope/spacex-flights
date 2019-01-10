@@ -5,7 +5,6 @@ import { LaunchsState, LaunchsActionTypes } from "./types";
 const initialState: LaunchsState = {
   data: [],
   errors: undefined,
-  selected: undefined,
   loading: false
 };
 
@@ -13,8 +12,7 @@ const initialState: LaunchsState = {
 // everything will remain type-safe.
 const reducer: Reducer<LaunchsState> = (state = initialState, action) => {
   switch (action.type) {
-    case LaunchsActionTypes.FETCH_REQUEST:
-    case LaunchsActionTypes.SELECT_TEAM: {
+    case LaunchsActionTypes.FETCH_REQUEST: {
       return { ...state, loading: true };
     }
     case LaunchsActionTypes.FETCH_SUCCESS: {
@@ -22,12 +20,6 @@ const reducer: Reducer<LaunchsState> = (state = initialState, action) => {
     }
     case LaunchsActionTypes.FETCH_ERROR: {
       return { ...state, loading: false, errors: action.payload };
-    }
-    case LaunchsActionTypes.SELECTED: {
-      return { ...state, loading: false, selected: action.payload };
-    }
-    case LaunchsActionTypes.CLEAR_SELECTED: {
-      return { ...state, selected: undefined };
     }
     default: {
       return state;

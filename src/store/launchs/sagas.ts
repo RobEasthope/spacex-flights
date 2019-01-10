@@ -7,12 +7,7 @@ import {
   takeLatest
 } from "redux-saga/effects";
 import callApi from "../../utils/callApi";
-import {
-  fetchError,
-  fetchSuccess,
-  selectLaunch,
-  launchSelected
-} from "./actions";
+import { fetchError, fetchSuccess } from "./actions";
 import { LaunchsActionTypes } from "./types";
 
 const API_ENDPOINT = "https://api.github.com/repos/facebook";
@@ -37,48 +32,15 @@ function* handleFetch() {
   }
 }
 
-function* handleSelect(action: ReturnType<typeof selectLaunch>) {
-  try {
-    const detail = yield call(
-      callApi,
-      "get",
-      API_ENDPOINT,
-      `/launchs/${action.payload}`
-    );
-    const players = yield call(
-      callApi,
-      "get",
-      API_ENDPOINT,
-      `/launchs/${action.payload}/players`
-    );
-
-    if (detail.error || players.error) {
-      yield put(fetchError(detail.error || players.error));
-    } else {
-      yield put(launchSelected({ detail, players }));
-    }
-  } catch (err) {
-    if (err instanceof Error) {
-      yield put(fetchError(err.stack!));
-    } else {
-      yield put(fetchError("An unknown error occured."));
-    }
-  }
-}
-
 // This is our watcher function. We use `take*()` functions to watch Redux for a specific action
 // type, and run our saga, for example the `handleFetch()` saga above.
 function* watchFetchRequest() {
   yield takeEvery(LaunchsActionTypes.FETCH_REQUEST, handleFetch);
 }
 
-function* watchSelectLaunch() {
-  yield takeLatest(LaunchsActionTypes.SELECT_TEAM, handleSelect);
-}
-
 // We can also use `fork()` here to split our saga into multiple watchers.
 function* heroesSaga() {
-  yield all([fork(watchFetchRequest), fork(watchSelectLaunch)]);
+  yield all([fork(watchFetchRequest)]);
 }
 
 export default heroesSaga;

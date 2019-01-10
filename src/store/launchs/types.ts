@@ -13,19 +13,6 @@ export interface Launch {
   logo_url?: string;
 }
 
-export interface Player {
-  account_id: number;
-  name: string;
-  games_played: number;
-  wins: number;
-  is_current_launch_member: boolean;
-}
-
-export interface LaunchSelectedPayload {
-  detail: Launch;
-  players: Player[];
-}
-
 // Define however naming conventions you'd like for your action types, but
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
@@ -43,6 +30,5 @@ export enum LaunchsActionTypes {
 export interface LaunchsState {
   readonly loading: boolean;
   readonly data: any;
-  readonly selected?: LaunchSelectedPayload;
   readonly errors?: string;
 }
