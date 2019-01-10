@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-eslint-rules",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "object-literal-sort-keys": {
+      "options": "match-declaration-order"
+    },
+    "interface-name": [true, "never-prefix"],
+  },
+  "linterOptions": {
+    "exclude": [
+      "src/serviceWorker.ts"
+    ]
+  }
+}
