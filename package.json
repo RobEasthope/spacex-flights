@@ -1,5 +1,5 @@
 {
-  "name": "create-react-app-typescript-redux-sagas",
+  "name": "spacex-flights",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
