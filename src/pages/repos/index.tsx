@@ -1,13 +1,9 @@
 import moment from "moment";
 import * as React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
-import styled from "styled-components";
 import LoadingOverlay from "../../components/data/LoadingOverlay";
 import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
-import Container from "../../components/layout/Container";
-import Page from "../../components/layout/Page";
 
 import { Dispatch } from "redux";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
@@ -42,17 +38,15 @@ class ReposIndexPage extends React.Component<AllProps> {
     const { loading } = this.props;
 
     return (
-      <Page>
-        <Container>
-          {loading && (
-            <LoadingOverlay>
-              <LoadingOverlayInner>LOADING</LoadingOverlayInner>
-            </LoadingOverlay>
-          )}
+      <div>
+        {loading && (
+          <LoadingOverlay>
+            <LoadingOverlayInner>LOADING</LoadingOverlayInner>
+          </LoadingOverlay>
+        )}
 
-          {this.renderRepoInfo(this.props.data)}
-        </Container>
-      </Page>
+        {this.renderRepoInfo(this.props.data)}
+      </div>
     );
   }
 

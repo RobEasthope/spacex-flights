@@ -8,8 +8,6 @@ import App from "./App";
 import configureStore from "./configureStore";
 import * as serviceWorker from "./serviceWorker";
 
-import "typeface-ibm-plex-sans";
-
 const history = createBrowserHistory();
 
 const initialState = window.initialReduxState;
