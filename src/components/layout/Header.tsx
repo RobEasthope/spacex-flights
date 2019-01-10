@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
 
-import Title from "../Title";
+import Title from "../Title/Title";
 
 interface HeaderProps {
   title: string;
