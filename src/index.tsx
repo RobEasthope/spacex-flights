@@ -4,9 +4,10 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
-import App from "./App";
 import configureStore from "./configureStore";
 import * as serviceWorker from "./serviceWorker";
+
+import App from "./App";
 
 const history = createBrowserHistory();
 
