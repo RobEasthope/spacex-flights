@@ -7,13 +7,13 @@ import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
 
 import { Dispatch } from "redux";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
-import { fetchRequest } from "../../store/repos/actions";
-import { Repo } from "../../store/repos/types";
+import { fetchRequest } from "../../store/launchs/actions";
+import { Launch } from "../../store/launchs/types";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
   loading: boolean;
-  data: Repo[];
+  data: Launch[];
   errors?: string;
 }
 
@@ -25,7 +25,7 @@ interface PropsFromDispatch {
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps;
 
-class ReposIndexPage extends React.Component<AllProps> {
+class LaunchsIndexPage extends React.Component<AllProps> {
   public componentDidMount() {
     const { data } = this.props;
 
@@ -45,30 +45,32 @@ class ReposIndexPage extends React.Component<AllProps> {
           </LoadingOverlay>
         )}
 
-        {this.renderRepoInfo(this.props.data)}
+        {this.renderLaunchInfo(this.props.data)}
       </div>
     );
   }
 
-  private renderRepoInfo = repo => {
-    if (repo.full_name) {
+  private renderLaunchInfo = launch => {
+    if (launch.full_name) {
       return (
         <div>
           <div>
-            Name: <a href={repo.html_url}>{repo.full_name}</a>
+            Name: <a href={launch.html_url}>{launch.full_name}</a>
           </div>
-          <div>Description: {repo.description}</div>
+          <div>Description: {launch.description}</div>
           <div>
             Owner:
-            <a href={repo.organization.html_url}>{repo.organization.login}</a>
+            <a href={launch.organization.html_url}>
+              {launch.organization.login}
+            </a>
           </div>
           <div>
-            Homepage: <a href={repo.homepage}>{repo.homepage}</a>
+            Homepage: <a href={launch.homepage}>{launch.homepage}</a>
           </div>
-          <div>Stars: {repo.stargazers_count}</div>
-          <div>Watchers: {repo.watchers}</div>
-          <div>Open issues: {repo.open_issues}</div>
-          <div>License: {repo.license.name}</div>
+          <div>Stars: {launch.stargazers_count}</div>
+          <div>Watchers: {launch.watchers}</div>
+          <div>Open issues: {launch.open_issues}</div>
+          <div>License: {launch.license.name}</div>
         </div>
       );
     }
@@ -78,10 +80,10 @@ class ReposIndexPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ repos }: ApplicationState) => ({
-  loading: repos.loading,
-  errors: repos.errors,
-  data: repos.data
+const mapStateToProps = ({ launchs }: ApplicationState) => ({
+  loading: launchs.loading,
+  errors: launchs.errors,
+  data: launchs.data
 });
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
@@ -95,4 +97,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ReposIndexPage);
+)(LaunchsIndexPage);

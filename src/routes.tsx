@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Root from "./components/layout/Root";
 import IndexPage from "./pages/Home/Home";
-import ReposPage from "./pages/repos";
+import ReposPage from "./pages/launchs";
 
 // If your app is big + you have routes with a lot of components, you should consider
 // code-splitting your routes! If you bundle stuff up with Webpack, I recommend `react-loadable`.

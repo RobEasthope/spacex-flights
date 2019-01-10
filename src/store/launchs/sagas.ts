@@ -7,8 +7,13 @@ import {
   takeLatest
 } from "redux-saga/effects";
 import callApi from "../../utils/callApi";
-import { fetchError, fetchSuccess, selectRepo, repoSelected } from "./actions";
-import { ReposActionTypes } from "./types";
+import {
+  fetchError,
+  fetchSuccess,
+  selectLaunch,
+  launchSelected
+} from "./actions";
+import { LaunchsActionTypes } from "./types";
 
 const API_ENDPOINT = "https://api.github.com/repos/facebook";
 
@@ -32,25 +37,25 @@ function* handleFetch() {
   }
 }
 
-function* handleSelect(action: ReturnType<typeof selectRepo>) {
+function* handleSelect(action: ReturnType<typeof selectLaunch>) {
   try {
     const detail = yield call(
       callApi,
       "get",
       API_ENDPOINT,
-      `/repos/${action.payload}`
+      `/launchs/${action.payload}`
     );
     const players = yield call(
       callApi,
       "get",
       API_ENDPOINT,
-      `/repos/${action.payload}/players`
+      `/launchs/${action.payload}/players`
     );
 
     if (detail.error || players.error) {
       yield put(fetchError(detail.error || players.error));
     } else {
-      yield put(repoSelected({ detail, players }));
+      yield put(launchSelected({ detail, players }));
     }
   } catch (err) {
     if (err instanceof Error) {
@@ -64,16 +69,16 @@ function* handleSelect(action: ReturnType<typeof selectRepo>) {
 // This is our watcher function. We use `take*()` functions to watch Redux for a specific action
 // type, and run our saga, for example the `handleFetch()` saga above.
 function* watchFetchRequest() {
-  yield takeEvery(ReposActionTypes.FETCH_REQUEST, handleFetch);
+  yield takeEvery(LaunchsActionTypes.FETCH_REQUEST, handleFetch);
 }
 
-function* watchSelectRepo() {
-  yield takeLatest(ReposActionTypes.SELECT_TEAM, handleSelect);
+function* watchSelectLaunch() {
+  yield takeLatest(LaunchsActionTypes.SELECT_TEAM, handleSelect);
 }
 
 // We can also use `fork()` here to split our saga into multiple watchers.
 function* heroesSaga() {
-  yield all([fork(watchFetchRequest), fork(watchSelectRepo)]);
+  yield all([fork(watchFetchRequest), fork(watchSelectLaunch)]);
 }
 
 export default heroesSaga;
