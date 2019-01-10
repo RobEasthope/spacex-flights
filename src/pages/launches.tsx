@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Route, RouteComponentProps, Switch } from "react-router-dom";
 
-import LaunchsIndexPage from "./launchs/index";
+import launchesIndexPage from "./launches/index";
 
 import { ApplicationState, ConnectedReduxProps } from "../store";
 
@@ -15,7 +15,7 @@ interface PropsFromState {
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & RouteComponentProps<{}> & ConnectedReduxProps;
 
-class LaunchsPage extends React.Component<AllProps> {
+class launchesPage extends React.Component<AllProps> {
   public render() {
     const { match } = this.props;
 
@@ -24,7 +24,7 @@ class LaunchsPage extends React.Component<AllProps> {
         <Route
           exact={true}
           path={match.path + "/"}
-          component={LaunchsIndexPage}
+          component={launchesIndexPage}
         />
       </Switch>
     );
@@ -34,11 +34,11 @@ class LaunchsPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ launchs }: ApplicationState) => ({
-  loading: launchs.loading,
-  errors: launchs.errors
+const mapStateToProps = ({ launches }: ApplicationState) => ({
+  loading: launches.loading,
+  errors: launches.errors
 });
 
 // Now let's connect our component!
 // With redux v4's improved typings, we can finally omit generics here.
-export default connect(mapStateToProps)(LaunchsPage);
+export default connect(mapStateToProps)(launchesPage);

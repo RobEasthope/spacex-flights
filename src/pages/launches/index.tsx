@@ -7,8 +7,8 @@ import LoadingOverlayInner from "../../components/data/LoadingOverlayInner";
 
 import { Dispatch } from "redux";
 import { ApplicationState, ConnectedReduxProps } from "../../store";
-import { fetchRequest } from "../../store/launchs/actions";
-import { Launch } from "../../store/launchs/types";
+import { fetchRequest } from "../../store/launches/actions";
+import { Launch } from "../../store/launches/types";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
@@ -25,7 +25,7 @@ interface PropsFromDispatch {
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps;
 
-class LaunchsIndexPage extends React.Component<AllProps> {
+class launchesIndexPage extends React.Component<AllProps> {
   public componentDidMount() {
     const { data } = this.props;
 
@@ -80,10 +80,10 @@ class LaunchsIndexPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ launchs }: ApplicationState) => ({
-  loading: launchs.loading,
-  errors: launchs.errors,
-  data: launchs.data
+const mapStateToProps = ({ launches }: ApplicationState) => ({
+  loading: launches.loading,
+  errors: launches.errors,
+  data: launches.data
 });
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
@@ -97,4 +97,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LaunchsIndexPage);
+)(launchesIndexPage);

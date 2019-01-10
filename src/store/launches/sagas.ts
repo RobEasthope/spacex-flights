@@ -8,7 +8,7 @@ import {
 } from "redux-saga/effects";
 import callApi from "../../utils/callApi";
 import { fetchError, fetchSuccess } from "./actions";
-import { LaunchsActionTypes } from "./types";
+import { launchesActionTypes } from "./types";
 
 const API_ENDPOINT = "https://api.github.com/repos/facebook";
 
@@ -35,7 +35,7 @@ function* handleFetch() {
 // This is our watcher function. We use `take*()` functions to watch Redux for a specific action
 // type, and run our saga, for example the `handleFetch()` saga above.
 function* watchFetchRequest() {
-  yield takeEvery(LaunchsActionTypes.FETCH_REQUEST, handleFetch);
+  yield takeEvery(launchesActionTypes.FETCH_REQUEST, handleFetch);
 }
 
 // We can also use `fork()` here to split our saga into multiple watchers.

@@ -1,8 +1,8 @@
 import { Reducer } from "redux";
-import { LaunchsState, LaunchsActionTypes } from "./types";
+import { launchesState, launchesActionTypes } from "./types";
 
 // Type-safe initialState!
-const initialState: LaunchsState = {
+const initialState: launchesState = {
   data: [],
   errors: undefined,
   loading: false
@@ -10,15 +10,15 @@ const initialState: LaunchsState = {
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
 // everything will remain type-safe.
-const reducer: Reducer<LaunchsState> = (state = initialState, action) => {
+const reducer: Reducer<launchesState> = (state = initialState, action) => {
   switch (action.type) {
-    case LaunchsActionTypes.FETCH_REQUEST: {
+    case launchesActionTypes.FETCH_REQUEST: {
       return { ...state, loading: true };
     }
-    case LaunchsActionTypes.FETCH_SUCCESS: {
+    case launchesActionTypes.FETCH_SUCCESS: {
       return { ...state, loading: false, data: action.payload };
     }
-    case LaunchsActionTypes.FETCH_ERROR: {
+    case launchesActionTypes.FETCH_ERROR: {
       return { ...state, loading: false, errors: action.payload };
     }
     default: {
@@ -29,4 +29,4 @@ const reducer: Reducer<LaunchsState> = (state = initialState, action) => {
 
 // Instead of using default export, we use named exports. That way we can group these exports
 // inside the `index.js` folder.
-export { reducer as launchsReducer };
+export { reducer as launchesReducer };

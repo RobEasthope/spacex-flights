@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Root from "./components/layout/Root";
 import IndexPage from "./pages/Home/Home";
-import ReposPage from "./pages/launchs";
+import LaunchesPage from "./pages/launches";
 
 // If your app is big + you have routes with a lot of components, you should consider
 // code-splitting your routes! If you bundle stuff up with Webpack, I recommend `react-loadable`.
@@ -20,7 +20,7 @@ const Routes: React.SFC = () => (
     <Header title="SpaceX Flights" />
     <Switch>
       <Route exact={true} path="/" component={IndexPage} />
-      <Route path="/repos" component={ReposPage} />
+      <Route path="/repos" component={LaunchesPage} />
       <Route component={() => <div>Not Found</div>} />
     </Switch>
   </Root>
