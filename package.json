@@ -13,8 +13,6 @@
     "@types/styled-components": "^4.1.5",
     "connected-react-router": "^6.1.0",
     "history": "^4.7.2",
-    "moment": "^2.23.0",
-    "polished": "^2.3.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -29,8 +27,6 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-eslint-rules": "^5.4.0",
     "tslint-react": "^3.6.0",
-    "typeface-ibm-plex-mono": "^0.0.61",
-    "typeface-ibm-plex-sans": "^0.0.61",
     "typesafe-actions": "^3.0.0",
     "typescript": "3.2.2",
     "typescript-plugin-styled-components": "^1.0.0"
