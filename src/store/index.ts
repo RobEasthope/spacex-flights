@@ -3,17 +3,14 @@ import { all, fork } from "redux-saga/effects";
 
 import { connectRouter } from "connected-react-router";
 
-import { layoutReducer, LayoutState } from "./layout";
-
-import { reposReducer } from "./repos/reducer";
-import reposSaga from "./repos/sagas";
-import { ReposState } from "./repos/types";
+import { launchesReducer } from "./launches/reducer";
+import launchesSaga from "./launches/sagas";
+import { launchesState } from "./launches/types";
 
 // The top-level state object
 export interface ApplicationState {
   router: any;
-  layout: LayoutState;
-  repos: ReposState;
+  launches: launchesState;
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
@@ -27,13 +24,12 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 export const createRootReducer = history =>
   combineReducers<ApplicationState>({
     router: connectRouter(history),
-    layout: layoutReducer,
-    repos: reposReducer
+    launches: launchesReducer
   });
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a
 // "generator function", which you can read about here:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
 export function* rootSaga() {
-  yield all([fork(reposSaga)]);
+  yield all([fork(launchesSaga)]);
 }
