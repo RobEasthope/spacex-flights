@@ -11,7 +11,7 @@ import { LaunchesState } from "./launches/types";
 // Rockets
 import { rocketsReducer } from "./rockets/reducer";
 import rocketsSaga from "./rockets/sagas";
-import { rocketsState } from "./rockets/types";
+import { RoadsterState } from "./rockets/types";
 
 // Dragons
 import { dragonsReducer } from "./dragons/reducer";
@@ -37,7 +37,7 @@ import { RoadsterState } from "./roadster/types";
 export interface ApplicationState {
   router: any;
   launches: LaunchesState;
-  rockets: rocketsState;
+  rockets: RoadsterState;
   dragons: DragonsState;
   cores: CoresState;
   nextLaunch: NextLaunchState;

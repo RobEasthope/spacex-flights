@@ -2,17 +2,16 @@ import { ConnectedRouter } from "connected-react-router";
 import { createBrowserHistory } from "history";
 import React from "react";
 import { Provider } from "react-redux";
+import { Normalize } from "styled-normalize";
 
+import Header from "./components/layout/Header";
 import configureStore from "./configureStore";
+import GlobalStyles from "./styles/GlobalStyles";
 
 const history = createBrowserHistory();
 
 const initialState = window.initialReduxState;
 const store = configureStore(history, initialState);
-
-import { Normalize } from "styled-normalize";
-import GlobalStyles from "./styles/GlobalStyles";
-import Header from "./components/layout/Header";
 
 import Routes from "./routes";
 
