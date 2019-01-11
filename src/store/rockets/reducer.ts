@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { rocketsState, rocketsActionTypes } from "./types";
+import { rocketsActionTypes, rocketsState } from "./types";
 
 // Type-safe initialState!
 const initialState: rocketsState = {

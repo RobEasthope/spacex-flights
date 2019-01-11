@@ -1,8 +1,8 @@
 import { Reducer } from "redux";
-import { nextLaunchState, nextLaunchActionTypes } from "./types";
+import { nextLaunchActionTypes, NextLaunchState } from "./types";
 
 // Type-safe initialState!
-const initialState: nextLaunchState = {
+const initialState: NextLaunchState = {
   data: [],
   errors: undefined,
   loading: false
@@ -10,7 +10,7 @@ const initialState: nextLaunchState = {
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
 // everything will remain type-safe.
-const reducer: Reducer<nextLaunchState> = (state = initialState, action) => {
+const reducer: Reducer<NextLaunchState> = (state = initialState, action) => {
   switch (action.type) {
     case nextLaunchActionTypes.FETCH_CORES_REQUEST: {
       return { ...state, loading: true };

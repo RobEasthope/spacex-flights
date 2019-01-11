@@ -2,9 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
-import { fetchRocketsRequest } from "../../store/rockets/actions";
-
 import { ApplicationState, ConnectedReduxProps } from "../../store";
+import { fetchRocketsRequest } from "../../store/rockets/actions";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
@@ -19,10 +18,7 @@ interface PropsFromDispatch {
 }
 
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
-type AllProps = PropsFromState &
-  PropsFromDispatch &
-  // RouteComponentProps<{}> &
-  ConnectedReduxProps;
+type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps;
 
 class RocketsPage extends React.Component<AllProps> {
   public componentDidMount() {

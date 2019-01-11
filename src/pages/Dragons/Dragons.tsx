@@ -19,10 +19,7 @@ interface PropsFromDispatch {
 }
 
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
-type AllProps = PropsFromState &
-  PropsFromDispatch &
-  // RouteComponentProps<{}> &
-  ConnectedReduxProps;
+type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps;
 
 class DragonsPage extends React.Component<AllProps> {
   public componentDidMount() {

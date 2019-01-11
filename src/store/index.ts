@@ -1,11 +1,12 @@
-import { Action, AnyAction, combineReducers, Dispatch } from "redux";
-import { all, fork } from "redux-saga/effects";
 import { connectRouter } from "connected-react-router";
+import { Action, AnyAction, combineReducers, Dispatch } from "redux";
+// tslint:disable-next-line: no-submodule-imports
+import { all, fork } from "redux-saga/effects";
 
 // Launches
 import { launchesReducer } from "./launches/reducer";
 import launchesSaga from "./launches/sagas";
-import { launchesState } from "./launches/types";
+import { LaunchesState } from "./launches/types";
 
 // Rockets
 import { rocketsReducer } from "./rockets/reducer";
@@ -15,32 +16,32 @@ import { rocketsState } from "./rockets/types";
 // Dragons
 import { dragonsReducer } from "./dragons/reducer";
 import dragonsSaga from "./dragons/sagas";
-import { dragonsState } from "./dragons/types";
+import { DragonsState } from "./dragons/types";
 
 // Cores
 import { coresReducer } from "./cores/reducer";
 import coresSaga from "./cores/sagas";
-import { coresState } from "./cores/types";
+import { CoresState } from "./cores/types";
 
 // Next Launch
 import { nextLaunchReducer } from "./nextLaunch/reducer";
 import nextLaunchSaga from "./nextLaunch/sagas";
-import { nextLaunchState } from "./nextLaunch/types";
+import { NextLaunchState } from "./nextLaunch/types";
 
 // Roadster
 import { roadsterReducer } from "./roadster/reducer";
 import roadsterSaga from "./roadster/sagas";
-import { roadsterState } from "./roadster/types";
+import { RoadsterState } from "./roadster/types";
 
 // The top-level state object
 export interface ApplicationState {
   router: any;
-  launches: launchesState;
+  launches: LaunchesState;
   rockets: rocketsState;
-  dragons: dragonsState;
-  cores: coresState;
-  nextLaunch: nextLaunchState;
-  roadster: roadsterState;
+  dragons: DragonsState;
+  cores: CoresState;
+  nextLaunch: NextLaunchState;
+  roadster: RoadsterState;
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
