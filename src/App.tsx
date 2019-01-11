@@ -5,7 +5,7 @@ import Routes from "./routes";
 import { ApplicationState } from "./store";
 
 import GlobalStyles from "./styles/GlobalStyles";
-import Normalize from "./styles/normalize";
+import { Normalize } from "styled-normalize";
 
 const App = () => {
   return (
