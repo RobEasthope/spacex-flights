@@ -12,6 +12,8 @@ const store = configureStore(history, initialState);
 
 import { Normalize } from "styled-normalize";
 import GlobalStyles from "./styles/GlobalStyles";
+import Header from "./components/layout/Header";
+
 import Routes from "./routes";
 
 const App = () => {
@@ -21,6 +23,7 @@ const App = () => {
         <React.Fragment>
           <Normalize />
           <GlobalStyles />
+          <Header />
           <Routes />
         </React.Fragment>
       </ConnectedRouter>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Header from "./components/layout/Header";
 import IndexPage from "./pages/Home/Home";
 import LaunchesPage from "./pages/Launches/Launches";
 
@@ -16,7 +15,6 @@ import LaunchesPage from "./pages/Launches/Launches";
 
 const Routes: React.SFC = () => (
   <div>
-    <Header />
     <Switch>
       <Route exact={true} path="/" component={IndexPage} />
       <Route path="/repos" component={LaunchesPage} />
