@@ -12,13 +12,13 @@ const initialState: launchesState = {
 // everything will remain type-safe.
 const reducer: Reducer<launchesState> = (state = initialState, action) => {
   switch (action.type) {
-    case launchesActionTypes.FETCH_REQUEST: {
+    case launchesActionTypes.FETCH_LAUNCHES_REQUEST: {
       return { ...state, loading: true };
     }
-    case launchesActionTypes.FETCH_SUCCESS: {
+    case launchesActionTypes.FETCH_LAUNCHES_SUCCESS: {
       return { ...state, loading: false, data: action.payload };
     }
-    case launchesActionTypes.FETCH_ERROR: {
+    case launchesActionTypes.FETCH_LAUNCHES_ERROR: {
       return { ...state, loading: false, errors: action.payload };
     }
     default: {

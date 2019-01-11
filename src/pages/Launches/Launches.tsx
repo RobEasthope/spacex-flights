@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import LoadingOverlay from "../../components/loading/LoadingOverlay";
 import LoadingOverlayInner from "../../components/loading/LoadingOverlayInner";
 
-import { fetchRequest } from "../../store/launches/actions";
+import { fetchLaunchesRequest } from "../../store/launches/actions";
 
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 
@@ -17,7 +17,7 @@ interface PropsFromState {
 
 // We can use `typeof` here to map our dispatch types to the props, like so.
 interface PropsFromDispatch {
-  fetchRequest: typeof fetchRequest;
+  fetchLaunchesRequest: typeof fetchLaunchesRequest;
 }
 
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
@@ -31,7 +31,7 @@ class LaunchesPage extends React.Component<AllProps> {
     const { data } = this.props;
 
     if (data.length === 0) {
-      this.props.fetchRequest();
+      this.props.fetchLaunchesRequest();
     }
   }
 
@@ -93,7 +93,7 @@ const mapStateToProps = ({ launches }: ApplicationState) => ({
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
 // You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchRequest: () => dispatch(fetchRequest())
+  fetchLaunchesRequest: () => dispatch(fetchLaunchesRequest())
 });
 
 // Now let's connect our component!
