@@ -1,7 +1,7 @@
 import { routerMiddleware } from "connected-react-router";
 import { History } from "history";
 import { applyMiddleware, createStore, Store } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import createSagaMiddleware from "redux-saga";
 
 import { ApplicationState, createRootReducer, rootSaga } from "./store";
