@@ -21,6 +21,10 @@ const Header = () => (
     <NavLink exact={true} to="/dragons">
       Dragons
     </NavLink>
+    <br />
+    <NavLink exact={true} to="/cores">
+      Cores
+    </NavLink>
   </div>
 );
 

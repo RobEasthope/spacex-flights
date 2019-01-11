@@ -5,6 +5,7 @@ import HomePage from "./pages/Home/Home";
 import LaunchesPage from "./pages/Launches/Launches";
 import RocketsPage from "./pages/Rockets/Rockets";
 import DragonsPage from "./pages/Dragons/Dragons";
+import CoresPage from "./pages/Cores/Cores";
 
 // If your app is big + you have routes with a lot of components, you should consider
 // code-splitting your routes! If you bundle stuff up with Webpack, I recommend `react-loadable`.
@@ -23,6 +24,7 @@ const Routes = () => {
         <Route path="/launches" component={LaunchesPage} />
         <Route path="/rockets" component={RocketsPage} />
         <Route path="/dragons" component={DragonsPage} />
+        <Route path="/cores" component={CoresPage} />
         <Route component={() => <div>Not Found</div>} />
       </Switch>
     </React.Fragment>
