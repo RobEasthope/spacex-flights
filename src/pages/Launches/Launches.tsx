@@ -1,13 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
-
+import { Route, RouteComponentProps, Switch } from "react-router-dom";
+import { Dispatch } from "redux";
 import LoadingOverlay from "../../components/loading/LoadingOverlay";
 import LoadingOverlayInner from "../../components/loading/LoadingOverlayInner";
 
-import { Dispatch } from "redux";
-import { ApplicationState, ConnectedReduxProps } from "../../store";
 import { fetchRequest } from "../../store/launches/actions";
 import { Launch } from "../../store/launches/types";
+
+import { ApplicationState, ConnectedReduxProps } from "../../store";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
@@ -22,9 +23,12 @@ interface PropsFromDispatch {
 }
 
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
-type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps;
+type AllProps = PropsFromState &
+  PropsFromDispatch &
+  // RouteComponentProps<{}> &
+  ConnectedReduxProps;
 
-class launchesIndexPage extends React.Component<AllProps> {
+class LaunchesPage extends React.Component<AllProps> {
   public componentDidMount() {
     const { data } = this.props;
 
@@ -79,6 +83,9 @@ class launchesIndexPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
+// It's usually good practice to only include one context at a time in a connected component.
+// Although if necessary, you can always include multiple contexts. Just make sure to
+// separate them from each other to prevent prop conflicts.
 const mapStateToProps = ({ launches }: ApplicationState) => ({
   loading: launches.loading,
   errors: launches.errors,
@@ -96,4 +103,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(launchesIndexPage);
+)(LaunchesPage);
