@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import { Dispatch } from "redux";
 import LoadingOverlay from "../../components/loading/LoadingOverlay";
 import LoadingOverlayInner from "../../components/loading/LoadingOverlayInner";

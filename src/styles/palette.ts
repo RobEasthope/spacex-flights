@@ -1,5 +1,5 @@
 const palette = {
-  highlight: "#2e2e2c"
+  highlight: "red"
 };
 
 export default palette;
