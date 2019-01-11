@@ -51,31 +51,7 @@ class LaunchesPage extends React.Component<AllProps> {
     );
   }
 
-  private renderLaunchInfo = launch => {
-    if (launch.full_name) {
-      return (
-        <div>
-          <div>
-            Name: <a href={launch.html_url}>{launch.full_name}</a>
-          </div>
-          <div>Description: {launch.description}</div>
-          <div>
-            Owner:
-            <a href={launch.organization.html_url}>
-              {launch.organization.login}
-            </a>
-          </div>
-          <div>
-            Homepage: <a href={launch.homepage}>{launch.homepage}</a>
-          </div>
-          <div>Stars: {launch.stargazers_count}</div>
-          <div>Watchers: {launch.watchers}</div>
-          <div>Open issues: {launch.open_issues}</div>
-          <div>License: {launch.license.name}</div>
-        </div>
-      );
-    }
-  };
+  private renderLaunchInfo = launch => {};
 }
 
 // It's usually good practice to only include one context at a time in a connected component.
