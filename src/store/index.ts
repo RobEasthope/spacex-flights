@@ -3,8 +3,6 @@ import { all, fork } from "redux-saga/effects";
 
 import { connectRouter } from "connected-react-router";
 
-import { layoutReducer, LayoutState } from "./layout";
-
 import { launchesReducer } from "./launches/reducer";
 import launchesSaga from "./launches/sagas";
 import { launchesState } from "./launches/types";
@@ -12,7 +10,6 @@ import { launchesState } from "./launches/types";
 // The top-level state object
 export interface ApplicationState {
   router: any;
-  layout: LayoutState;
   launches: launchesState;
 }
 
@@ -27,7 +24,6 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 export const createRootReducer = history =>
   combineReducers<ApplicationState>({
     router: connectRouter(history),
-    layout: layoutReducer,
     launches: launchesReducer
   });
 
