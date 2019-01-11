@@ -6,11 +6,11 @@ import Routes from "./routes";
 
 const App = () => {
   return (
-    <div>
+    <React.Fragment>
       <Normalize />
       <GlobalStyles />
       <Routes />
-    </div>
+    </React.Fragment>
   );
 };
 
