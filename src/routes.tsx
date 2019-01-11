@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import IndexPage from "./pages/Home/Home";
+import HomePage from "./pages/Home/Home";
 import LaunchesPage from "./pages/Launches/Launches";
 import RocketsPage from "./pages/Rockets/Rockets";
 
@@ -18,7 +18,7 @@ const Routes = () => {
   return (
     <React.Fragment>
       <Switch>
-        <Route exact={true} path="/" component={IndexPage} />
+        <Route exact={true} path="/" component={HomePage} />
         <Route path="/launches" component={LaunchesPage} />
         <Route path="/rockets" component={RocketsPage} />
         <Route component={() => <div>Not Found</div>} />
