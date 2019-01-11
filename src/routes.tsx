@@ -16,7 +16,7 @@ import LaunchesPage from "./pages/Launches/Launches";
 
 const Routes: React.SFC = () => (
   <div>
-    <Header title="SpaceX Flights" />
+    <Header />
     <Switch>
       <Route exact={true} path="/" component={IndexPage} />
       <Route path="/repos" component={LaunchesPage} />

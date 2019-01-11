@@ -3,13 +3,9 @@ import { NavLink } from "react-router-dom";
 
 import Title from "../Title/Title";
 
-interface HeaderProps {
-  title: string;
-}
-
-const Header: React.SFC<HeaderProps> = ({ title }) => (
+const Header = () => (
   <div>
-    <Title>{title}</Title>{" "}
+    <Title>SpaceX Flights</Title>{" "}
     <NavLink exact={true} to="/">
       Home
     </NavLink>
