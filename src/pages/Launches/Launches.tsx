@@ -47,7 +47,7 @@ class LaunchesPage extends React.Component<AllProps> {
 
   private renderLaunchInfo = launches => {
     if (launches[0] != null) {
-      return <span>LAUNCHED LOADED</span>;
+      return <span>LAUNCHES LOADED</span>;
     }
   };
 }
