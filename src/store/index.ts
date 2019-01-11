@@ -1,6 +1,5 @@
 import { Action, AnyAction, combineReducers, Dispatch } from "redux";
 import { all, fork } from "redux-saga/effects";
-
 import { connectRouter } from "connected-react-router";
 
 // Launches
@@ -28,6 +27,11 @@ import { nextLaunchReducer } from "./nextLaunch/reducer";
 import nextLaunchSaga from "./nextLaunch/sagas";
 import { nextLaunchState } from "./nextLaunch/types";
 
+// Roadster
+import { roadsterReducer } from "./roadster/reducer";
+import roadsterSaga from "./roadster/sagas";
+import { roadsterState } from "./roadster/types";
+
 // The top-level state object
 export interface ApplicationState {
   router: any;
@@ -36,6 +40,7 @@ export interface ApplicationState {
   dragons: dragonsState;
   cores: coresState;
   nextLaunch: nextLaunchState;
+  roadster: roadsterState;
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
@@ -53,7 +58,8 @@ export const createRootReducer = history =>
     rockets: rocketsReducer,
     dragons: dragonsReducer,
     cores: coresReducer,
-    nextLaunch: nextLaunchReducer
+    nextLaunch: nextLaunchReducer,
+    roadster: roadsterReducer
   });
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a
@@ -65,6 +71,7 @@ export function* rootSaga() {
     fork(rocketsSaga),
     fork(dragonsSaga),
     fork(coresSaga),
-    fork(nextLaunchSaga)
+    fork(nextLaunchSaga),
+    fork(roadsterSaga)
   ]);
 }
