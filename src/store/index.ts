@@ -6,11 +6,15 @@ import { connectRouter } from "connected-react-router";
 import { launchesReducer } from "./launches/reducer";
 import launchesSaga from "./launches/sagas";
 import { launchesState } from "./launches/types";
+import { rocketsReducer } from "./rockets/reducer";
+import rocketsSaga from "./rockets/sagas";
+import { rocketsState } from "./rockets/types";
 
 // The top-level state object
 export interface ApplicationState {
   router: any;
   launches: launchesState;
+  rockets: rocketsState;
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
@@ -24,12 +28,13 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 export const createRootReducer = history =>
   combineReducers<ApplicationState>({
     router: connectRouter(history),
-    launches: launchesReducer
+    launches: launchesReducer,
+    rockets: rocketsReducer
   });
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a
 // "generator function", which you can read about here:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
 export function* rootSaga() {
-  yield all([fork(launchesSaga)]);
+  yield all([fork(launchesSaga), fork(rocketsSaga)]);
 }
