@@ -5,7 +5,7 @@ import { launchesActionTypes } from "./types";
 
 // API config
 import API_ROOT from "../api_endpoint";
-const API_PATH = "/create-react-app";
+const API_PATH = "/launches";
 
 function* handleFetch() {
   try {
