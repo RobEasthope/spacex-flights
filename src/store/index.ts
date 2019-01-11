@@ -1,6 +1,6 @@
 import { connectRouter } from "connected-react-router";
 import { Action, AnyAction, combineReducers, Dispatch } from "redux";
-// tslint:disable-next-line: no-submodule-imports
+
 import { all, fork } from "redux-saga/effects";
 
 // Launches
