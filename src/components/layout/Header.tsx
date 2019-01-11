@@ -25,6 +25,10 @@ const Header = () => (
     <NavLink exact={true} to="/cores">
       Cores
     </NavLink>
+    <br />
+    <NavLink exact={true} to="/next-launch">
+      Next Launch
+    </NavLink>
   </div>
 );
 
