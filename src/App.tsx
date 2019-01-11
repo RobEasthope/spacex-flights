@@ -21,9 +21,14 @@ const App = () => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <React.Fragment>
+          {/* Add global styles */}
           <Normalize />
           <GlobalStyles />
+
+          {/* Add header */}
           <Header />
+
+          {/* Main routing */}
           <Routes />
         </React.Fragment>
       </ConnectedRouter>
