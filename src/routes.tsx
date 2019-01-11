@@ -18,7 +18,7 @@ const Routes = () => {
     <React.Fragment>
       <Switch>
         <Route exact={true} path="/" component={IndexPage} />
-        <Route path="/repos" component={LaunchesPage} />
+        <Route path="/launches" component={LaunchesPage} />
         <Route component={() => <div>Not Found</div>} />
       </Switch>
     </React.Fragment>

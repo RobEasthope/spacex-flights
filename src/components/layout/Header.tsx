@@ -10,8 +10,8 @@ const Header = () => (
       Home
     </NavLink>
     <br />
-    <NavLink exact={true} to="/repos">
-      Repos
+    <NavLink exact={true} to="/launches">
+      Launches
     </NavLink>
   </div>
 );
