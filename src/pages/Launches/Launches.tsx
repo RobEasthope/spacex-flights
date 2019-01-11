@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import LoadingOverlay from "../../components/loading/LoadingOverlay";
-import LoadingOverlayInner from "../../components/loading/LoadingOverlayInner";
 
 import { fetchLaunchesRequest } from "../../store/launches/actions";
 
@@ -40,18 +38,18 @@ class LaunchesPage extends React.Component<AllProps> {
 
     return (
       <div>
-        {loading && (
-          <LoadingOverlay>
-            <LoadingOverlayInner>LOADING</LoadingOverlayInner>
-          </LoadingOverlay>
-        )}
+        {loading && <span>LOADING</span>}
 
         {this.renderLaunchInfo(this.props.data)}
       </div>
     );
   }
 
-  private renderLaunchInfo = launch => {};
+  private renderLaunchInfo = launches => {
+    if (launches[0] != null) {
+      return <span>LAUNCHED LOADED</span>;
+    }
+  };
 }
 
 // It's usually good practice to only include one context at a time in a connected component.
