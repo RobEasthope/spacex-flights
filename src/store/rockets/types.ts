@@ -11,7 +11,7 @@ export enum rocketsActionTypes {
 
 // Declare state types with `readonly` modifier to get compile time immutability.
 // https://github.com/piotrwitek/react-redux-typescript-guide#state-with-type-level-immutability
-export interface RoadsterState {
+export interface RocketsState {
   readonly loading: boolean;
   readonly data: any;
   readonly errors?: string;
