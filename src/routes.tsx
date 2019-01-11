@@ -13,14 +13,16 @@ import LaunchesPage from "./pages/Launches/Launches";
 // The given `pages/` directory provides an example of a directory structure that's easily
 // code-splittable.
 
-const Routes: React.SFC = () => (
-  <div>
-    <Switch>
-      <Route exact={true} path="/" component={IndexPage} />
-      <Route path="/repos" component={LaunchesPage} />
-      <Route component={() => <div>Not Found</div>} />
-    </Switch>
-  </div>
-);
+const Routes = () => {
+  return (
+    <React.Fragment>
+      <Switch>
+        <Route exact={true} path="/" component={IndexPage} />
+        <Route path="/repos" component={LaunchesPage} />
+        <Route component={() => <div>Not Found</div>} />
+      </Switch>
+    </React.Fragment>
+  );
+};
 
 export default Routes;
