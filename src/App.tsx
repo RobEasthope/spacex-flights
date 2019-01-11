@@ -1,11 +1,8 @@
-import * as React from "react";
-import { connect } from "react-redux";
+import React from "react";
 
-import Routes from "./routes";
-import { ApplicationState } from "./store";
-
-import GlobalStyles from "./styles/GlobalStyles";
 import { Normalize } from "styled-normalize";
+import GlobalStyles from "./styles/GlobalStyles";
+import Routes from "./routes";
 
 const App = () => {
   return (
