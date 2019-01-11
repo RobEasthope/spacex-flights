@@ -5,14 +5,13 @@ import LoadingOverlay from "../../components/loading/LoadingOverlay";
 import LoadingOverlayInner from "../../components/loading/LoadingOverlayInner";
 
 import { fetchRequest } from "../../store/launches/actions";
-import { Launch } from "../../store/launches/types";
 
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
   loading: boolean;
-  data: Launch[];
+  data: any;
   errors?: string;
 }
 
