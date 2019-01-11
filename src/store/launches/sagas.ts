@@ -3,13 +3,14 @@ import callApi from "../../utils/callApi";
 import { fetchError, fetchSuccess } from "./actions";
 import { launchesActionTypes } from "./types";
 
-const API_ENDPOINT = "https://api.github.com/repos/facebook";
+// API config
+import API_ROOT from "../api_endpoint";
+const API_PATH = "/create-react-app";
 
 function* handleFetch() {
   try {
     // To call async functions, use redux-saga's `call()`.
-    const res = yield call(callApi, "get", API_ENDPOINT, "/create-react-app");
-    console.log(API_ENDPOINT);
+    const res = yield call(callApi, "get", API_ROOT, API_PATH);
 
     if (res.error) {
       yield put(fetchError(res.error));
