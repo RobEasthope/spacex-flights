@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
-import { fetchLaunchesRequest } from "../../store/launches/actions";
+import { fetchCoresRequest } from "../../store/cores/actions";
 
 import { ApplicationState, ConnectedReduxProps } from "../../store";
 
@@ -15,18 +15,18 @@ interface PropsFromState {
 
 // We can use `typeof` here to map our dispatch types to the props, like so.
 interface PropsFromDispatch {
-  fetchLaunchesRequest: typeof fetchLaunchesRequest;
+  fetchCoresRequest: typeof fetchCoresRequest;
 }
 
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps;
 
-class LaunchesPage extends React.Component<AllProps> {
+class CoresPage extends React.Component<AllProps> {
   public componentDidMount() {
     const { data } = this.props;
 
     if (data.length === 0) {
-      this.props.fetchLaunchesRequest();
+      this.props.fetchCoresRequest();
     }
   }
 
@@ -42,9 +42,9 @@ class LaunchesPage extends React.Component<AllProps> {
     );
   }
 
-  private renderLaunchInfo = launches => {
-    if (launches[0] != null) {
-      return <span>LAUNCHES LOADED</span>;
+  private renderLaunchInfo = cores => {
+    if (cores[0] != null) {
+      return <span>CORES LOADED</span>;
     }
   };
 }
@@ -55,16 +55,16 @@ class LaunchesPage extends React.Component<AllProps> {
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = ({ launches }: ApplicationState) => ({
-  loading: launches.loading,
-  errors: launches.errors,
-  data: launches.data
+const mapStateToProps = ({ cores }: ApplicationState) => ({
+  loading: cores.loading,
+  errors: cores.errors,
+  data: cores.data
 });
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
 // You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchLaunchesRequest: () => dispatch(fetchLaunchesRequest())
+  fetchCoresRequest: () => dispatch(fetchCoresRequest())
 });
 
 // Now let's connect our component!
@@ -72,4 +72,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LaunchesPage);
+)(CoresPage);
