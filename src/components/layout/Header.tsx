@@ -33,6 +33,10 @@ const Header = () => (
     <NavLink exact={true} to="/roadster">
       Roadster
     </NavLink>
+    <br />
+    <NavLink exact={true} to="/holding-page">
+      Holding Page
+    </NavLink>
   </div>
 );
 
