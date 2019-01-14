@@ -1,6 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
 
+import PlaceholderBkg from "../../components/PlaceholderBkg/PlaceholderBkg";
+import PlaceholderText from "../../components/PlaceholderText/PlaceholderText";
+
 const HoldingPage = () => (
   <React.Fragment>
     <Helmet>
@@ -38,7 +41,13 @@ const HoldingPage = () => (
     </Helmet>
 
     <main>
-      <h1>SpaceX Flights. Coming soon</h1>
+      <PlaceholderBkg>
+        <PlaceholderText>
+          SpaceX Flights
+          <br />
+          Coming soon.
+        </PlaceholderText>
+      </PlaceholderBkg>
     </main>
   </React.Fragment>
 );
