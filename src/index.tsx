@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import App from "./App";
 
-const rootElement = document.getElementById("root");
+const rootElement: any = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
   hydrate(<App />, rootElement);
 } else {
