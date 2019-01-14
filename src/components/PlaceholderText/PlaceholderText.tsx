@@ -5,29 +5,13 @@ const PlaceholderText = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: left;
+  text-align: center;
   margin: 0;
-  max-width: 275px;
-
-  h1,
-  h3 {
-    display: inline-block;
-
-    line-height: 1;
-    margin-top: 0;
-
-    padding: 8px 10px 11px;
-    /* background-color: white; */
-
-    :first-child,
-    :last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  a {
-    text-decoration: none;
-  }
+  min-width: 275px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 3rem;
 `;
 
 export default PlaceholderText;
