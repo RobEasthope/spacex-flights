@@ -25,14 +25,14 @@ const Routes = () => {
     <React.Fragment>
       <Switch>
         <Route exact={true} path="/" component={HoldingPage} />
-        <Route path="/launches" component={LaunchesPage} />
+        {/* <Route path="/launches" component={LaunchesPage} />
         <Route path="/rockets" component={RocketsPage} />
         <Route path="/dragons" component={DragonsPage} />
         <Route path="/cores" component={CoresPage} />
         <Route path="/next-launch" component={NextLaunchPage} />
         <Route path="/roadster" component={RoadsterPage} />
         <Route path="/holding-page" component={HoldingPage} />
-        <Route component={NoMatch} />
+        <Route component={NoMatch} /> */}
       </Switch>
     </React.Fragment>
   );
