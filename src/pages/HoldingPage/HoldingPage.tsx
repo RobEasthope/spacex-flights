@@ -38,7 +38,7 @@ const HoldingPage = () => (
     </Helmet>
 
     <main>
-      <h1>SpaceX Flights</h1>
+      <h1>SpaceX Flights. Coming soon</h1>
     </main>
   </React.Fragment>
 );
