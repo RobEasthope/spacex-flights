@@ -25,7 +25,7 @@ const App = () => {
           <GlobalStyles />
 
           {/* Add header */}
-          <Header />
+          {/* <Header /> */}
 
           {/* Main routing */}
           <Routes />
