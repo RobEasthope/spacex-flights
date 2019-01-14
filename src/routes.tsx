@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import CoresPage from "./pages/Cores/Cores";
-import DragonsPage from "./pages/Dragons/Dragons";
-import HomePage from "./pages/Home/Home";
-import LaunchesPage from "./pages/Launches/Launches";
-import NextLaunchPage from "./pages/NextLaunch/NextLaunch";
-import NoMatch from "./pages/NoMatch404/NoMatch404";
+// import CoresPage from "./pages/Cores/Cores";
+// import DragonsPage from "./pages/Dragons/Dragons";
+// import HomePage from "./pages/Home/Home";
+// import LaunchesPage from "./pages/Launches/Launches";
+// import NextLaunchPage from "./pages/NextLaunch/NextLaunch";
+// import NoMatch from "./pages/NoMatch404/NoMatch404";
 import PlaceholderPage from "./pages/PlaceholderPage/PlaceholderPage";
-import RoadsterPage from "./pages/Roadster/Roadster";
-import RocketsPage from "./pages/Rockets/Rockets";
+// import RoadsterPage from "./pages/Roadster/Roadster";
+// import RocketsPage from "./pages/Rockets/Rockets";
 
 // If your app is big + you have routes with a lot of components, you should consider
 // code-splitting your routes! If you bundle stuff up with Webpack, I recommend `react-loadable`.
