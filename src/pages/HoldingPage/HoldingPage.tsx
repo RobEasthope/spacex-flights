@@ -1,14 +1,16 @@
 import React from "react";
 
 const HoldingPage = () => (
-  <main>
+  <React.Fragment>
     <Helmet>
-      <meta charSet="utf-8" />
-      <title>My Title</title>
-      <link rel="canonical" href="http://mysite.com/example" />
+      <title>SpaceX Flights</title>
+      <link rel="canonical" href="https://www.spacexflights.io/" />
     </Helmet>
-    <h1>SpaceX Flights</h1>
-  </main>
+
+    <main>
+      <h1>SpaceX Flights</h1>
+    </main>
+  </React.Fragment>
 );
 
 export default HoldingPage;
